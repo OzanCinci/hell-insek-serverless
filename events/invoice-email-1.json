@@ -1,0 +1,38 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.1",
+      "eventSource": "aws:s3",
+      "awsRegion": "eu-central-1",
+      "eventTime": "2024-09-28T12:00:00.000Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "EXAMPLE"
+      },
+      "requestParameters": {
+        "sourceIPAddress": "127.0.0.1"
+      },
+      "responseElements": {
+        "x-amz-request-id": "C3D13FE58DE4C810",
+        "x-amz-id-2": "FMyUVURIkn3C5p4f9F+syJGz3c+p/WUqjHtRtPhk4hbP2N1wlJEYuoKpl+dhjtb4ZfuZbDGkUQo="
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "testConfigRule",
+        "bucket": {
+          "name": "hell-insekten-sonnenschutz-invoices",
+          "ownerIdentity": {
+            "principalId": "EXAMPLE"
+          },
+          "arn": "arn:aws:s3:::hell-insekten-sonnenschutz-invoices"
+        },
+        "object": {
+          "key": "67G-9YY-HA4.pdf",
+          "size": 1024,
+          "eTag": "d41d8cd98f00b204e9800998ecf8427e",
+          "sequencer": "0055AED6DCD90281E5"
+        }
+      }
+    }
+  ]
+}

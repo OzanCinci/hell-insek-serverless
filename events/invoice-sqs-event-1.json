@@ -1,0 +1,20 @@
+{
+  "Records": [
+    {
+      "messageId": "1",
+      "receiptHandle": "MessageReceiptHandle",
+      "body": "{\"customer\":{\"fullName\":\"Johann Müller\",\"address\":\"Musterstraße 12, 10115 Berlin, Deutschland\",\"postalCode\":\"10115\"},\"order\":{\"orderNumber\":\"96S-JKK-7UY\",\"orderDate\":\"2024-09-23 17:33\",\"total\":24.95,\"shippingPrice\":5.90,\"tax\":{\"percentage\":19,\"amount\":3.62},\"items\":[{\"title\":\"Basic Plissee\",\"description\":\"Hohe: 500mm,\\nBreite: 300mm,\\nMontageposition: Glasfalz,\\nPlisseemodell: MP2,\\nBefestigungsart: Abspannschuhe,\\nSchienenfarbe: Weiss\",\"quantity\":1,\"unitPrice\":19.05},{\"title\":\"Basic Plissee 2\",\"description\":\"Hohe: 500mm,\\nBreite: 300mm,\\nMontageposition: Glasfalz,\\nPlisseemodell: MP2,\\nBefestigungsart: Abspannschuhe,\\nSchienenfarbe: Weiss\",\"quantity\":2,\"unitPrice\":19.05},{\"title\":\"Test deneme uzun isim değiştirdim burayı da\",\"description\":\"Hohe: 500mm,\\nBreite: 300mm,\\nMontageposition: Glasfalz,\\nPlisseemodell: MP2,\\nBefestigungsart: Abspannschuhe,\\nSchienenfarbe: Weiss\",\"quantity\":2,\"unitPrice\":19.05}]}}",
+      "attributes": {
+        "ApproximateReceiveCount": "1",
+        "SentTimestamp": "1545082649183",
+        "SenderId": "123456789012",
+        "ApproximateFirstReceiveTimestamp": "1545082649185"
+      },
+      "messageAttributes": {},
+      "md5OfBody": "098f6bcd4621d373cade4e832627b4f6",
+      "eventSource": "aws:sqs",
+      "eventSourceARN": "arn:aws:sqs:us-east-1:123456789012:order-invoice-broker.fifo",
+      "awsRegion": "us-east-1"
+    }
+  ]
+}

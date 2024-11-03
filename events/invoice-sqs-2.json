@@ -1,0 +1,23 @@
+{
+    "Records": [
+        {
+            "messageId": "6ed50078-4633-42d6-9e9c-ccbc8f831aaf",
+            "receiptHandle": "AQEBY7jdDLFv1nIrLNgy20ETzVd1EsPkgbx+NcwyKJ4YW8v6pnoBy0j93xz3nppq6zrKgaeTAD9u6gY6gylueDP11KSCtK1fYiEySXiKojeNfv8IBn+YQ2Waul+cMvcnYWKBfngpiXi64juECnAYiUnlMwDtkQgOki3gTp88r88E6IvW+5yKFJLIt0H23rKGhGmxpW0tlJwpJ3ePkN8EwgyhJLVQgWylxxX7bd6AMLLp1RFXM3YYI1x/kKiw42MfZiQWkB3SIbazFLDnBLhSOl9xQYoO4EM9jHpySfSKc/zIJRw=",
+            "body": "{\"customer\":{\"fullName\":\"ozan cinci\",\"address\":\"Musterstraße, 12, Berlin, Berlin, Deutschland (10115)\",\"postalCode\":\"10115\"},\"order\":{\"orderNumber\":\"QQX-JKK-B6S\",\"orderDate\":\"2024-09-28T17:12:57.920129Z\",\"total\":120.0275,\"shippingPrice\":5.9,\"tax\":{\"percentage\":19.0,\"amount\":21.684225},\"items\":[{\"title\":\"Premium Plissee - Caro Perl Basic Weiß #147010\",\"description\":\"Höhe: 500mm\\nBreite: 300mm\\nMontageposition: Glasfalz\\nPlisseemodell: VS 2\\nBefestigungsart: Abspannschuhe\\nSchienenfarbe: Weiß\",\"quantity\":1,\"unitPrice\":22.799999999999997},{\"title\":\"Basic Alu Jalousien 25mm - Mittelgrau #159\",\"description\":\"Lamellenbreite: 25 mm\\nHöhe: 1234mm\\nBreite: 589mm\\nOberkastenfarbe: Weiß\\nMontageposition: Glasfalz\\nBefestigungsart: Deckenträger\\nBedienart: Schnur / Wendestab\\nBedienseite: Links\",\"quantity\":2,\"unitPrice\":45.66375}]}}",
+            "attributes": {
+                "ApproximateReceiveCount": "1",
+                "SentTimestamp": "1727543583601",
+                "SequenceNumber": "18888995231111407616",
+                "MessageGroupId": "InvoiceGenerator",
+                "SenderId": "AIDAVRLXVADTTXAMHXXMS",
+                "MessageDeduplicationId": "8QX-JKK-B6S",
+                "ApproximateFirstReceiveTimestamp": "1727543583601"
+            },
+            "messageAttributes": {},
+            "md5OfBody": "ccd69e6a3ac68509f746e868d973947f",
+            "eventSource": "aws:sqs",
+            "eventSourceARN": "arn:aws:sqs:eu-central-1:380892414183:invoice-generator.fifo",
+            "awsRegion": "eu-central-1"
+        }
+    ]
+}

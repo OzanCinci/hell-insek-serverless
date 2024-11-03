@@ -1,0 +1,85 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  hell-insektenschutz-serverless
+
+Globals:
+  Function:
+    Timeout: 10
+    MemorySize: 256
+
+Resources:
+  #######################################################
+  #################### S3 BUCKETS #######################
+  #######################################################
+  InvoiceS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: hell-insekten-sonnenschutz-invoices-pdf
+
+  #######################################################
+  ################## LAMBDA FUNCTIONS ###################
+  #######################################################
+  InvoiceGeneratorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: invoice_generator/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Timeout: 90
+      MemorySize: 512
+      Architectures:
+        - x86_64
+      Events:
+        SQSEvent:
+          Type: SQS
+          Properties:
+            Queue: arn:aws:sqs:eu-central-1:380892414183:invoice-generator.fifo
+            BatchSize: 10  # The batch size for processing SQS messages
+      Policies:
+        - S3ReadPolicy:
+            BucketName: hell-insekten-sonnenschutz-invoices-pdf
+        - S3WritePolicy:
+            BucketName: hell-insekten-sonnenschutz-invoices-pdf
+        - Version: '2012-10-17'  # This is necessary to define a custom policy document
+          Statement:
+            - Effect: Allow
+              Action:
+                - sqs:ReceiveMessage
+                - sqs:DeleteMessage
+                - sqs:GetQueueAttributes
+              Resource: arn:aws:sqs:eu-central-1:380892414183:invoice-generator.fifo
+
+  # New Lambda function to send email on S3 file upload
+  SendInvoiceEmailFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: invoice_email_sender/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Timeout: 60
+      MemorySize: 512
+      Architectures:
+        - x86_64
+      Policies:
+        - S3ReadPolicy:
+            BucketName: hell-insekten-sonnenschutz-invoices-pdf
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - sqs:SendMessage
+              Resource: arn:aws:sqs:eu-central-1:380892414183:hell-insek-event-broker.fifo
+
+Outputs:
+  InvoiceGeneratorFunction:
+    Description: Invoice Generator Lambda Function ARN
+    Value: !GetAtt InvoiceGeneratorFunction.Arn
+
+  SendInvoiceEmailFunction:
+    Description: Send Invoice Email Lambda Function ARN
+    Value: !GetAtt SendInvoiceEmailFunction.Arn
+
+  InvoiceGeneratorSQSQueue:
+    Description: SQS Queue ARN for the Invoice Generator
+    Value: arn:aws:sqs:us-east-1:380892414183:order-invoice-broker.fifo
